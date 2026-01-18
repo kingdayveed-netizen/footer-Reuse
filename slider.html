@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Slider</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #fff;
+}
+
+.clients {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.clients h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+/* Pause animation on hover */
+.slider:hover .slider-track {
+  animation-play-state: paused;
+}
+
+.logo {
+  flex: 0 0 auto;
+  padding: 0 40px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 45px;
+  }
+
+  .logo {
+    padding: 0 25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="clients">
+  <h2>We are proud to have serviced</h2>
+
+  <div class="slider">
+    <div class="slider-track" id="sliderTrack">
+
+      <div class="logo"><img src="image/slider1.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider2.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider3.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider4.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider5.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider6.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider7.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider1.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider2.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider3.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider4.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider5.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider6.jpeg" alt=""></div>
+      <div class="logo"><img src="image/slider7.jpeg" alt=""></div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+const track = document.getElementById("sliderTrack");
+
+function updateSpeed() {
+  const width = window.innerWidth;
+  track.style.animationDuration = width < 768 ? "15s" : "20s";
+}
+
+window.addEventListener("resize", updateSpeed);
+updateSpeed();
+</script>
+
+</body>
+</html>
